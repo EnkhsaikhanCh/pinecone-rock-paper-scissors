@@ -19,7 +19,7 @@ h1 {
 #game-container {
   background-color: #2d333b;
   text-align: center;
-  border: 1px solid black;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 50px;
   width: 450px;
   /* height: 450px; */
@@ -60,9 +60,30 @@ h1 {
   background-color: rgb(206, 66, 66);
 }
 
-#score {
+/* #score {
   margin-top: 20px;
   font-size: 1.5em;
+} */
+
+.scores {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1e242b;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  height: 60px;
+  width: 130px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  line-height: 120%;
 }
 
 .choise-container {
