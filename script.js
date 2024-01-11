@@ -1,6 +1,7 @@
 const playerChoiceElement = document.querySelector("#playerChoise");
 const computerChoiseElement = document.querySelector("#computerChoise");
 const scoreElement = document.querySelector("#score");
+const moveButtons = document.querySelectorAll(".move");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -15,13 +16,17 @@ function playGame(move) {
 
   updateScore(move, computerChoise);
   displayResult(move, computerChoise);
+  checkGameEnd();
 }
 
 function displayResult(move, computerChoise) {
   playerChoiceElement.innerText = move;
   computerChoiseElement.innerText = computerChoise;
 
-  scoreElement.innerHTML = `Player: ${playerScore} | Computer: ${computerScore}`;
+  scoreElement.innerHTML = `
+  <p class="score">${playerScore}<br />Player</p>
+  <p class="score">${computerScore}<br />Computer</p>
+  `;
 }
 
 function updateScore(move, computerChoise) {
@@ -43,5 +48,24 @@ function resetGame() {
 
   playerChoiceElement.innerText = "";
   computerChoiseElement.innerText = "";
-  scoreElement.innerText = `Player: 0 | Computer: 0`;
+  scoreElement.innerHTML = `
+  <p class="score">0<br />Player</p>
+  <p class="score">0<br />Computer</p>
+  `;
+  moveButtons.forEach(enableButtons);
 }
+
+function checkGameEnd() {
+  if (playerScore === winnerScore || computerScore === winnerScore) {
+    moveButtons.forEach(disableButtons);
+  }
+}
+function disableButtons(button) {
+  button.disabled = true;
+}
+
+function enableButtons(button) {
+  button.disabled = false;
+}
+
+console.log(moveButtons);
